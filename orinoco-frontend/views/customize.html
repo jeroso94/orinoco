@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang=fr>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Tu peux maintenant personnaliser la couleur de ta Peluches fait à la main.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../content/style.css" />
+    <link rel="canonical" href="https://jeroso94.github.io/orinoco/views/customize.html">
+    
+    <title>Orinoco - Produit</title>
+<!--
+    <script type="text/javascript" src="../src/index.js" defer></script>
+    <script type="text/javascript" src="../src/customize.js" defer></script>
+-->
+    <script type="text/javascript" src="/polyfill.bundle.js" defer></script>
+    <script type="text/javascript" src="/app.bundle.js" defer></script>
+
+  </head>
+
+  <body>
+    <div id="main">
+      <div id="customizeResult"></div>
+    </div>
+
+    <form id="form_1" novalidate success-msg="Coloris pris en compte" fail-msg="Aucun coloris enregistré!">
+        <div class="form-group">
+            <label for="teddyColor">Choix du coloris de la peluche:</label>
+            <select class="selector" name="teddyColor" required></select>
+            <p class="logTeddyColor"></p>
+            <button id="toAddInBasket">Ajouter au panier</button>
+        </div>
+        
+    </form>
+    
+  </body>
+</html>

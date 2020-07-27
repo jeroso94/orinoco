@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang=fr>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Tu peux remplir ce bon de commande pour te faire livrer les articles enregistrés dans le panier">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../content/style.css" />
+    <link rel="canonical" href="https://jeroso94.github.io/orinoco/views/order.html">
+    
+    <title>Orinoco - Panier</title>
+<!--    
+    <script type="text/javascript" src="../src/index.js" defer></script>
+    <script type="text/javascript" src="../src/order.js" defer></script>
+    <script type="text/javascript" src="../src/secure.js" defer></script>
+  -->
+    <script type="text/javascript" src="/polyfill.bundle.js" defer></script>
+    <script type="text/javascript" src="/app.bundle.js" defer></script>
+  </head>
+
+  <body>
+    <div id="main">
+      <div id="result"></div>
+    </div>
+
+    <form id="form_1" novalidate success-msg="Félicitation ! Les coordonnées sont validées." fail-msg="Oups ! Les coordonnées sont invalides.">
+        <div class="form-group">
+
+            <label for="firstName">Prénom:</label>
+            <input type="text" required placeholder="Prénom" name="firstName" class="fullName"/>
+            <p id="logFirstName"></p>
+
+            <label for="lastName">Nom de famille:</label>
+            <input type="text" required placeholder="Nom de famille" name="lastName" class="fullName"/>
+            <p id="logLastName"></p>
+
+            <label for="address">Numéro et nom de voie:</label>
+            <input type="text" required placeholder="14 rue Vivaldi" name="address" pattern="/(^[0-9]{0,3})([\s\-][a-z]{3,6})*\s([a-z]{3,10})\s([a-z0-9\-\s\']{0,128})/gi" />
+            <p id="logAddress"></p>
+
+            <label for="city">Ville:</label>
+            <input type="text" required placeholder="Lille" name="address" pattern="/(^([a-z0-9\-\s\']{0,128})/gi" />
+            <p id="logAddress"></p>
+
+            <label for="email">Adresse électronique:</label>
+            <input type="email" required maxlength="128" placeholder="pseudo@domaine.com" name="email"/>
+            <p id="logEmail"></p>
+
+        </div>
+    </form>
+    
+  </body>
+</html>
