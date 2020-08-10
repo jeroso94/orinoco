@@ -20,7 +20,17 @@
 
   <body>
     <div id="main">
-      <div id="result"></div>
+      <p><button id="toListOfProducts">Liste des produits</button></p>
+      <table id="orderResult" width='100%' border=true>
+        <tr>
+          <th width='10%'>Lien</th>
+          <th width='20%'>Référence</th>
+          <th width='10%'>Photo</th>
+          <th width='10%'>Nom</th>
+          <th width='10%'>Prix unitaire</th>
+          </tr>
+      </table>
+      <div id="totalAmountArea"></div>
     </div>
 
     <form id="form_1" novalidate success-msg="Félicitation ! Les coordonnées sont validées." fail-msg="Oups ! Les coordonnées sont invalides.">
