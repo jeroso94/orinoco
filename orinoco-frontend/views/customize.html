@@ -19,23 +19,44 @@
   </head>
 
   <body>
-    <div id="main">
-      <p>
-        <button id="toListOfProducts">Liste des produits</button>
-        <button id="toOrder">Passer la commande</button>
-      </p>
-      <div id="customizeResult"></div>
-    </div>
 
-    <form id="form_1" novalidate success-msg="Coloris pris en compte" fail-msg="Aucun coloris enregistré!">
-        <div class="form-group">
-            <label for="teddyColor">Choix du coloris de la peluche:</label>
-            <select class="selector" name="teddyColor" required></select>
-            <p class="logTeddyColor"></p>
-            <button id="toAddInBasket">Ajouter au panier</button>
-        </div>
+    <header>
+      <h1>Orinoco</h1>
+      <p>Venez trouver l'ourson en peluche de votre enfance</p>
+    </header>
+
+    <nav>
+      <ul>
+        <li><button id="toListOfProducts">Liste des produits</button></li>
+        <li><button id="toOrder">Passer la commande</button></li>
+      </ul>
+    </nav>
+
+    <main>
+      <article id="customizeResult"></article>
+
+      <!-- the aside content can also be nested within the main content -->
+      <aside>
+        <h2>Personnaliser</h2>
+
+        <form id="form_1" novalidate>
+          <p><label for="teddyColor">Coloris de l'ourson:</label><br>
+          <select id="teddyColor" class="selector" ></select></p>
+          <p class="logTeddyColor"></p>
+
+          <button id="toAddInBasket">Ajouter au panier</button>
+        </form>
+
+        <ul>
+          <li><a href="#">Oh I do like to be beside the seaside</a></li>
+          <li><a href="#">Oh well...</a></li>
+        </ul>
         
-    </form>
-    
+      </aside>
+    </main>
+
+    <footer>
+      <p>©Copyright 2050 by nobody. All rights reversed.</p>
+    </footer>    
   </body>
 </html>
