@@ -19,45 +19,72 @@
   </head>
 
   <body>
-    <div id="main">
-      <p><button id="toListOfProducts">Liste des produits</button></p>
-      <table id="orderResult" width='100%' border=true>
-        <tr>
-          <th width='10%'>Lien</th>
-          <th width='20%'>Référence</th>
-          <th width='10%'>Photo</th>
-          <th width='10%'>Nom</th>
-          <th width='10%'>Prix unitaire</th>
+    <header>
+      <h1>Orinoco</h1>
+      <p>Venez trouver l'ourson en peluche de votre enfance</p>
+    </header>
+
+    <nav>
+      <ul>
+        <li><button id="toListOfProducts">Liste des produits</button></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <article>
+        <h2>Récapitulatif de commande (étape 1/3)</h2>
+        
+        <table id="orderResult" width='100%' border=true>
+          <tr>
+            <th width='10%'>Lien</th>
+            <th width='20%'>Référence</th>
+            <th width='10%'>Photo</th>
+            <th width='10%'>Nom</th>
+            <th width='10%'>Prix unitaire</th>
           </tr>
-      </table>
-      <div id="totalAmountArea"></div>
-    </div>
+        </table>
+      </article>
 
-    <form id="form_1" novalidate success-msg="Félicitation ! Les coordonnées sont validées." fail-msg="Oups ! Les coordonnées sont invalides.">
-        <div class="form-group">
+      <aside id="totalAmountArea"></aside>
 
-            <label for="firstName">Prénom:</label>
-            <input type="text" required placeholder="Prénom" name="firstName" class="fullName"/>
-            <p id="logFirstName"></p>
+      <article>
+        <h2>Coordonnées pour la livraison (étape 2/3)</h2>
+        
+        <form action="/" method="get">
+          <table width=100% border=true>
+            <tr><td>
+                <label for="email">Adresse électronique:</label>
+                <input type="email" placeholder="pseudo@domaine.com" id="email" name="email"/>
+              <p id="logEmail"></p>
+            </td><td></td></tr>
+            <tr><td>
+                <label for="firstName">Prénom:</label>
+                <input type="text" placeholder="Prénom" id="firstName" name="firstName" class="fullName"/>
+              <p id="logFirstName"></p>
+            </td><td>
+                <label for="lastName">Nom de famille:</label>
+                <input type="text" placeholder="Nom de famille" id="lastName" name="lastName" class="fullName"/>
+              <p id="logLastName"></p>
+            </td></tr>
+            <tr><td>
+                <label for="address">Numéro et nom de voie:</label>
+                <input type="text" placeholder="14 rue Vivaldi" id="address" name="address" />
+              <p id="logAddress"></p>
+            </td><td>
+                <label for="city">Ville:</label>
+                <input type="text" placeholder="Lille" id="city" />
+              <p id="logCity"></p>
+            </td></tr>
+          </table>
 
-            <label for="lastName">Nom de famille:</label>
-            <input type="text" required placeholder="Nom de famille" name="lastName" class="fullName"/>
-            <p id="logLastName"></p>
+          <p><button type="submit" disabled id="toValidateOrder">Commander</button></p>
+        </form>
+      </article>
+    </main>
 
-            <label for="address">Numéro et nom de voie:</label>
-            <input type="text" required placeholder="14 rue Vivaldi" name="address" pattern="/(^[0-9]{0,3})([\s\-][a-z]{3,6})*\s([a-z]{3,10})\s([a-z0-9\-\s\']{0,128})/gi" />
-            <p id="logAddress"></p>
-
-            <label for="city">Ville:</label>
-            <input type="text" required placeholder="Lille" name="address" pattern="/(^([a-z0-9\-\s\']{0,128})/gi" />
-            <p id="logAddress"></p>
-
-            <label for="email">Adresse électronique:</label>
-            <input type="email" required maxlength="128" placeholder="pseudo@domaine.com" name="email"/>
-            <p id="logEmail"></p>
-
-        </div>
-    </form>
-    
+    <footer>
+      <p>©Copyright 2050 by nobody. All rights reversed.</p>
+    </footer>
   </body>
 </html>
