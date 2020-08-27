@@ -27,8 +27,9 @@
 
     <nav>
       <ul>
-        <li><button id="toListOfProducts">Liste des produits</button></li>
-        <li><button id="toOrder">Passer la commande</button></li>
+        <li><a href="../index.html">Liste des produits</a></li>
+<!--        <li><button id="toListOfProducts">Liste des produits</button></li>
+-->
       </ul>
     </nav>
 
@@ -37,14 +38,17 @@
 
       <!-- the aside content can also be nested within the main content -->
       <aside>
-        <h2>Personnaliser</h2>
-
         <form id="form_1" novalidate>
-          <p><label for="teddyColor">Coloris de l'ourson:</label><br>
-          <select id="teddyColor" class="selector" ></select></p>
-          <p class="logTeddyColor"></p>
+          <h2><label for="teddyColor">Coloris:</label></h2>
+          <select id="teddyColor" class="selector" ></select>
+          <p id="logTeddyColor"></p>
+
+          <h2><label for="teddyQty">Quantité:</label></h2>
+          <select id="teddyQty" class="selector" ></select>
+          <p id="logTeddyQty"></p>
 
           <button id="toAddInBasket">Ajouter au panier</button>
+          <button id="toOrder">Passer la commande</button>
         </form>
 
         <ul>
