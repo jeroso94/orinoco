@@ -6,7 +6,7 @@ export default function showDetailsAndCustomize() {
     /* REQUETE API GET pour afficher le détail du produit sélectionné
     -- DEBUT -- */
     const url = 'http://localhost:3000/api/teddies/' + localStorage.getItem('selectedProductId');
-    console.log(url);
+    //console.log(url);
     fetch(url)
     .then(response => response.json())
     .then(selectedProduct => {
@@ -20,7 +20,7 @@ export default function showDetailsAndCustomize() {
         // Gestion des produits - Coloris disponibles à la vente
         const selectTeddyColor = document.getElementById('teddyColor');
         for (const availableChoice in selectedProduct.colors) {
-            console.log (selectedProduct.colors[availableChoice]);
+            //console.log (selectedProduct.colors[availableChoice]);
             const newColor = document.createElement("option");
             selectTeddyColor.appendChild(newColor);
             newColor.setAttribute("value",selectedProduct.colors[availableChoice]);

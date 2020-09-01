@@ -13,7 +13,7 @@ export default function userInputsChecking() {
     const logAddress = document.getElementById('logAddress');
     const logCity = document.getElementById('logCity');
     
-    console.log(inputFullName);
+    //console.log(inputFullName);
     
     inputEmail.addEventListener('input', function(e) {
         const catchedValue = e.target.value;
@@ -22,7 +22,7 @@ export default function userInputsChecking() {
     })
 
     for (const element of inputFullName) {
-        console.log(element);
+        //console.log(element);
         element.addEventListener('input', function(e) {	
             let catchedValue = e.target.value;
             
