@@ -11,7 +11,8 @@ export function keepTeddy() {
     const btnToAddInBasket = document.getElementById('toAddInBasket');
     btnToAddInBasket.addEventListener('click', updateBasket);
 
-    function updateBasket() {
+    function updateBasket(e) {
+        e.preventDefault();
         const newProductLine = new ProductLine (
             localStorage.getItem('selectedProductId'),
             localStorage.getItem('selectedProductColor'),
@@ -22,7 +23,7 @@ export function keepTeddy() {
         if (JSON.stringify(basketReserved) != '[]') {
             let sameIdSameColor = null;
             // Pour chaque ligne du panier
-            for (const elt in basketReserved) {
+            for (let elt in basketReserved) {
                 // A condition que le teddy selectionné ait la même référence et le même coloris
                 if ((basketReserved[elt].productid === newProductLine.productid) && (basketReserved[elt].productcolor === newProductLine.productcolor)) {
                     //Mise à jour théorique des quantités

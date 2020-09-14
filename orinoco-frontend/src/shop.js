@@ -12,7 +12,7 @@ export default function showAllTeddies() {
 
         console.log (listOfProducts);
 
-        for (const value in listOfProducts) {
+        for (let value in listOfProducts) {
 
             listResult.innerHTML += `<article>
                 <img src='${listOfProducts[value].imageUrl}' alt='${listOfProducts[value]._id}' width=25% />
@@ -27,7 +27,7 @@ export default function showAllTeddies() {
             console.log(document.getElementById(listOfProducts[value].name));
         }
 
-        for (const value in listOfProducts) {
+        for (let value in listOfProducts) {
             document.getElementById(listOfProducts[value].name).onclick = () => {
                 localStorage.setItem ('selectedProductId', listOfProducts[value]._id);
                 //alert ("LocalStorage : " + localStorage.getItem ('selectedProductId'));
