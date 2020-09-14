@@ -19,7 +19,7 @@ export default function showDetailsAndCustomize() {
 
         // Gestion des produits - Coloris disponibles à la vente
         const selectTeddyColor = document.getElementById('teddyColor');
-        for (const availableChoice in selectedProduct.colors) {
+        for (let availableChoice in selectedProduct.colors) {
             //console.log (selectedProduct.colors[availableChoice]);
             const newColor = document.createElement("option");
             selectTeddyColor.appendChild(newColor);

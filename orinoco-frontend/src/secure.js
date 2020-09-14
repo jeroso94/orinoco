@@ -21,7 +21,7 @@ export default function userInputsChecking() {
         if (!isValidEmail(catchedValue)) logEmail.textContent = "invalide :'(";
     })
 
-    for (const element of inputFullName) {
+    for (let element of inputFullName) {
         //console.log(element);
         element.addEventListener('input', function(e) {	
             let catchedValue = e.target.value;

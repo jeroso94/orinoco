@@ -5,33 +5,32 @@ export default function showTeddiesInBasket() {
     let basket = JSON.parse(localStorage.getItem("basketStored"));
     let midAmount = 0;
     let totalAmount = 0;
-    //let totalAmount = parseInt(localStorage.getItem("totalAmountStored")) || 0;
     let basketRow = 0;
 
-    for (const item of basket) {
-        console.log (item.productid);
-        /* REQUETE API GET pour afficher le détail du produit sélectionné
-        -- DEBUT -- */
+    for (let item of basket) {
 
+        /* REQUETE API GET pour afficher le détail du produit sélectionné
+        -- DEBUT -- */        
+       
         const url = 'http://localhost:3000/api/teddies/' + item.productid;
         //console.log(url);
         fetch(url)
         .then(response => response.json())
         .then(thisItem => {
             midAmount = parseInt(thisItem.price) * item.productqty;
-            let orderResult = document.getElementById('orderResult');
-            orderResult.innerHTML += `<tr class='product'>
-                <td>(<a id='${thisItem._id}_btnToDeleteThisLine' href='../views/order.html'>Supprimer</a>)</td>
+            let cart = document.getElementById('orderResult');
+            cart.innerHTML += `<tr class='product'>
+                <td>(<a class='btnToDeleteAProduct' data-id='${thisItem._id}' data-color='${item.productcolor}' href='../views/order.html'>Supprimer</a>)</td>
                 <td>${thisItem._id}</td>
                 <td><img src='${thisItem.imageUrl}' width='50%'/></td>
-                <td><a id='${thisItem.name}' href='/views/customize.html'>${thisItem.name}</a></td>
-                <td id='${item.productcolor}'>${item.productcolor}</td>
+                <td><a class='NameOfTeddy' data-id='${thisItem._id}' data-name='${thisItem.name}' data-color='${item.productcolor}' href='../views/customize.html'>${thisItem.name}</a></td>
+                <td>${item.productcolor}</td>
                 <td>${item.productqty}</td>
                 <td>${euroConverter(thisItem.price)}</td>
                 <td>${euroConverter(midAmount)}</td>
             </tr>`;
-            
-            console.log (orderResult);
+
+            // console.log(cart);
 
             totalAmount += midAmount;
             //console.log ("Montant total: " + euroConverter(totalAmount));
@@ -44,32 +43,38 @@ export default function showTeddiesInBasket() {
                 totalAmountArea.innerHTML += "<h2>Montant total : " + euroConverter(localStorage.getItem("totalAmountStored")) + "</h2>";
             }
 
-            return thisItem;
-        })
-        .then(thisItem => {
-            console.log(thisItem._id + ' ' + thisItem.name);
-            document.getElementById(thisItem.name).onclick = () => {
-                localStorage.setItem ('selectedProductId', thisItem._id);
-                //alert ("LocalStorage : " + localStorage.getItem ('selectedProductId'));
-                location.href = "/views/customize.html";
+            const eltNameOfTeddy = document.getElementsByClassName('NameOfTeddy');
+            //console.log(eltNameOfTeddy);
+            for (let v of eltNameOfTeddy) {
+                v.addEventListener ('click', (evt) => {
+                    evt.preventDefault();
+                    evt.stopPropagation();
+                    localStorage.setItem ('selectedProductId', v.dataset.id);
+                    location.href = "/views/customize.html";
+                });
             }
 
-            document.getElementById(thisItem._id + '_btnToDeleteThisLine').onclick = (evt) => {
-                evt.preventDefault;
-                let newBasket = [];
-                const searchArray = JSON.parse(localStorage.getItem("basketStored"));
-                for (const elt of searchArray) {
-                    if(elt.productid != thisItem._id) newBasket.push(elt);
-                    if((elt.productid === thisItem._id) && (elt.productcolor != item.productcolor)) newBasket.push(elt);
-                }
-                localStorage.setItem('basketStored', JSON.stringify(newBasket));
+            const eltBtnToDeleteAProduct = document.getElementsByClassName('btnToDeleteAProduct');
+            //console.log (eltBtnToDeleteAProduct);
+            for (let v of eltBtnToDeleteAProduct) {
+                v.addEventListener ('click', (evt) => {
+                    evt.preventDefault();
+                    evt.stopPropagation();
+                    let newBasket = [];
+                    const searchArray = JSON.parse(localStorage.getItem("basketStored"));
+                    for (let elt of searchArray) {
+                        if(elt.productid != v.dataset.id || elt.productcolor != v.dataset.color) newBasket.push(elt);
+                    }
+                    localStorage.setItem('basketStored', JSON.stringify(newBasket));
+                    location.href = "/views/order.html";
+                });
             }
-
         })
         .catch(err => {
             console.log("Quelque chose s'est mal passé durant le GET !", err);
         });
         /* REQUETE API GET pour afficher le détail de l'article sélectionné
         -- FIN -- */
+        
     }
 }
