@@ -1,9 +1,21 @@
 
+// CLASSE - Stocker les caractéristiques choisies par produit
 class ProductLine {
     constructor (productid, productcolor, productqty) {	
     this.productid = productid;	
     this.productcolor = productcolor;	
     this.productqty = productqty;
+    }
+}
+
+// CLASSE - Stocker les coordonnées utilisateur pour la livraison
+class Contact {
+    constructor (firstname, lastname, address, city, email) {	
+    this.firstname = firstname;	
+    this.lastname = lastname;	
+    this.address = address;
+    this.city = city;
+    this.email = email;	
     }
 }
 
@@ -81,7 +93,52 @@ export function confirmOrder() {
         localStorage.setItem('city', document.getElementById('city').value);
         localStorage.setItem('email', document.getElementById('email').value);
 
-        location.href = "/views/thanks.html";
+        const newContact = new Contact (
+            localStorage.getItem('firstName'),
+            localStorage.getItem('lastName'),
+            localStorage.getItem('address'),
+            localStorage.getItem('city'),
+            localStorage.getItem('email')
+        );
+    
+        const basketConfirmed = [];
+    
+        const searchArray = JSON.parse(localStorage.getItem("basketStored"));
+        for (let elt of searchArray) {
+            basketConfirmed.push(elt.productid);
+        }
+    
+        // Envoi du bon de commande au serveur
+        fetch('http://localhost:3000/api/teddies/order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "contact": {
+                    "firstName":    newContact.firstname,
+                    "lastName":     newContact.lastname,
+                    "address":      newContact.address,
+                    "city":         newContact.city,
+                    "email":        newContact.email
+                },
+                "products":         basketConfirmed
+            })
+        })
+        .then(response => {
+            console.log(response.status + ":" + response.statusText);
+            return response.json();
+        })
+        .then(data =>{
+            console.log(data);
+            console.log(data.orderId);
 
+            localStorage.setItem("orderId", data.orderId);
+
+            location.href = "/views/thanks.html";
+        })
+        .catch(err => {
+            console.log("Quelque chose s'est mal passé durant le POST de la commande !", err);
+        });     
     });
 }

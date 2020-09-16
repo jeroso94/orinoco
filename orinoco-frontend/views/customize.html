@@ -5,40 +5,79 @@
     <meta name="description" content="Tu peux maintenant personnaliser la couleur de ta Peluches fait à la main.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../content/style.css" />
     <link rel="canonical" href="https://jeroso94.github.io/orinoco/views/customize.html">
     
     <title>Orinoco - Produit</title>
-<!--
-    <script type="text/javascript" src="../src/index.js" defer></script>
-    <script type="text/javascript" src="../src/customize.js" defer></script>
--->
-    <script type="text/javascript" src="/polyfill.bundle.js" defer></script>
-    <script type="text/javascript" src="/app.bundle.js" defer></script>
+    <!-- Open Graph data -->
 
+    <meta property="og:title" content="Orinoco - Produit"/>
+    <meta property="og:type" content="e-commerce"/>
+    <meta property="og:url" content="http://localhost:8080/"/>
+    <meta property="og:image" content="http://localhost:8080/favicon.png"/>
+    <meta property="og:description" content="Orinico est la plateforme de e-commerce des boutiques à thèmes (Livres, Textiles, Peluches fait à la main, Caméras vintage, Meubles en chêne)."/>
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@publisher_handle">
+    <meta name="twitter:title" content="Orinoco - Produit">
+    <meta name="twitter:description" content="Orinico est la plateforme de e-commerce des boutiques à thèmes (Livres, Textiles, Peluches fait à la main, Caméras vintage, Meubles en chêne).">
+    <meta name="twitter:creator" content="@author_handle">
+    <!-- Twitter Summary card images must be at least 200x200px -->
+    <meta name="twitter:image" content="http://localhost:8080/favicon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Complément CSS -->
+    <link rel="stylesheet" href="../content/style.css" />
+
+    <!-- CDN icônes fontawesome -->
+    <script src="https://kit.fontawesome.com/a7946aabc7.js" crossorigin="anonymous"></script>
+
+    <!-- Favicons navigateurs populaires ordinateurs/iOS/Android/IE10+ -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="favicon-32.png" type="image/png">
+    <link rel="icon" sizes="64x64" href="favicon-64.png" type="image/png">
+    <link rel="icon" sizes="96x96" href="favicon-96.png" type="image/png">
+    <link rel="icon" sizes="196x196" href="favicon-196.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="favicon-144.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+
+    <!-- Babel -->
+    <script type="text/javascript" src="/polyfill.bundle.js" defer></script>
+    <!-- Webpack -->
+    <script type="text/javascript" src="/app.bundle.js" defer></script>
   </head>
 
   <body>
 
-    <header>
-      <h1>Orinoco</h1>
-      <p>Venez trouver l'ourson en peluche de votre enfance</p>
+    <header class="container-fluid jumbotron">
+      <h1><i class="fas fa-shopping-cart"></i> Orinoco</h1>
+      <p>Venez retrouver l'ourson en peluche de votre enfance</p>
     </header>
 
-    <nav>
-      <ul>
-        <li><a href="../index.html">Liste des produits</a></li>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+      <a class="navbar-brand" href="http://localhost:8080/index.html"><i class="fas fa-shopping-cart"></i> Orinoco</a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="../index.html">Liste des produits</a></li>
 <!--        <li><button id="toListOfProducts">Liste des produits</button></li>
 -->
       </ul>
     </nav>
 
-    <main>
+    <main class="container-fluid">
       <article id="customizeResult"></article>
 
       <!-- the aside content can also be nested within the main content -->
       <aside>
-        <form id="form_1" novalidate>
+        <form id="form_1" novalidate class="jumbotron">
           <h2><label for="teddyColor">Coloris:</label></h2>
           <select id="teddyColor" class="selector" ></select>
           <p id="logTeddyColor"></p>
@@ -51,7 +90,7 @@
           <button id="toOrder">Passer la commande</button>
         </form>
 
-        <ul>
+        <ul class="jumbotron">
           <li><a href="#">Oh I do like to be beside the seaside</a></li>
           <li><a href="#">Oh well...</a></li>
         </ul>

@@ -5,38 +5,61 @@
     <meta name="description" content="Félicitation, la commande est enregistrée !">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../content/style.css" />
     <link rel="canonical" href="https://jeroso94.github.io/orinoco/views/thanks.html">
     
     <title>Orinoco - Commande enregistrée. Merci !</title>
-<!--
-    <script type="text/javascript" src="../src/index.js" defer></script>
-    <script type="text/javascript" src="../src/customize.js" defer></script>
--->
-    <script type="text/javascript" src="/polyfill.bundle.js" defer></script>
-    <script type="text/javascript" src="/app.bundle.js" defer></script>
+   
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+    <!-- Complément CSS -->
+    <link rel="stylesheet" href="../content/style.css" />
+
+    <!-- CDN icônes fontawesome -->
+    <script src="https://kit.fontawesome.com/a7946aabc7.js" crossorigin="anonymous"></script>
+
+    <!-- Favicons navigateurs populaires ordinateurs/iOS/Android/IE10+ -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="favicon-32.png" type="image/png">
+    <link rel="icon" sizes="64x64" href="favicon-64.png" type="image/png">
+    <link rel="icon" sizes="96x96" href="favicon-96.png" type="image/png">
+    <link rel="icon" sizes="196x196" href="favicon-196.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="favicon-144.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+
+    <!-- Babel -->
+    <script type="text/javascript" src="/polyfill.bundle.js" defer></script>
+    <!-- Webpack -->
+    <script type="text/javascript" src="/app.bundle.js" defer></script>
   </head>
 
   <body>
 
-    <header>
-      <h1>Orinoco</h1>
-      <p>Venez trouver l'ourson en peluche de votre enfance</p>
+    <header class="container-fluid jumbotron">
+      <h1><i class="fas fa-shopping-cart"></i> Orinoco</h1>
+      <p>Venez retrouver l'ourson en peluche de votre enfance</p>
     </header>
 
-    <nav>
-      <ul>
-        <li><a href="../index.html">Liste des produits</a></li>
-        <li><a href="#">Contact</a></li>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+      <a class="navbar-brand" href="http://localhost:8080/index.html"><i class="fas fa-shopping-cart"></i> Orinoco</a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="../index.html">Liste des produits</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
       </ul>
     </nav>
     
-    <main>
+    <main class="container-fluid">
       <h2>Commande validée. Merci ! (étape 3/3)</h2>
       <article id="thanksResult"></article>
 
-      <aside>
+      <aside class="jumbotron">
         <h2>Parrainage</h2>
 
         <ul>
