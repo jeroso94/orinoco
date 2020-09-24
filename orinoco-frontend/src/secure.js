@@ -12,19 +12,16 @@ export default function userInputsChecking() {
     const logLastName = document.getElementById('logLastName');
     const logAddress = document.getElementById('logAddress');
     const logCity = document.getElementById('logCity');
-    
-    //console.log(inputFullName);
-    
+     
     inputEmail.addEventListener('input', function(e) {
         const catchedValue = e.target.value;
         logEmail.textContent = catchedValue;
         if (!isValidEmail(catchedValue)) logEmail.textContent = "invalide :'(";
-    })
+    });
 
     for (let element of inputFullName) {
-        //console.log(element);
         element.addEventListener('input', function(e) {	
-            let catchedValue = e.target.value;
+            const catchedValue = e.target.value;
             
             if (element.name == 'firstName') {
                 logFirstName.textContent = catchedValue;
@@ -41,7 +38,7 @@ export default function userInputsChecking() {
         const catchedValue = e.target.value;
         logAddress.textContent = catchedValue;
         if (!isValidAddress(catchedValue)) logAddress.textContent = "invalide :'(";
-    })
+    });
 
     inputCity.addEventListener('input', function(e) {
         const catchedValue = e.target.value;
@@ -52,7 +49,7 @@ export default function userInputsChecking() {
         } else {
             document.getElementById('toValidateOrder').disabled = false;
         }  
-    })
+    });
 
     // RegEx pour Prénom, Nom
     function isValidFullName(value) {	

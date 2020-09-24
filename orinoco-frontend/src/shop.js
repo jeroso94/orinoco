@@ -14,11 +14,10 @@ export default function showAllTeddies() {
 
         for (let value in listOfProducts) {
 
-            listResult.innerHTML += `<article>
-                <img src='${listOfProducts[value].imageUrl}' alt='${listOfProducts[value]._id}' width=25% />
-                <p>Référence: ${listOfProducts[value]._id}</p>
-                <h2><a id='${listOfProducts[value].name}' href='/views/customize.html'>${listOfProducts[value].name}</a></h2>
-                <h3>${euroConverter(listOfProducts[value].price)}</h3>
+            listResult.innerHTML += `<article class='col-md-6 col-lg-4 p-3'>
+                <img src='${listOfProducts[value].imageUrl}' alt='${listOfProducts[value]._id}' width=50% />
+                <h3><a id='${listOfProducts[value].name}' href='/views/customize.html'>${listOfProducts[value].name}</a></h3>
+                <h5>${euroConverter(listOfProducts[value].price)}</h5>
             </article>`;
 
             //console.log (listOfProducts[value].name);

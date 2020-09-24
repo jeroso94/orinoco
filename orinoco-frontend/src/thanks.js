@@ -9,7 +9,7 @@ export default function showConfirmationOfOrder() {
     
 
     // Message d'information contenant le montant total de la commande et son numéro d'enregistrement sur le serveur
-    thanksResult.innerHTML += `<p>Votre commande d'un montant de <h3>${euroConverter(localStorage.getItem("totalAmountStored"))}</h3> est enregistrée sous la référence <h3>${localStorage.getItem("orderId")}</h3>.</p>`;
+    thanksResult.innerHTML += `<p>Votre commande d'un montant de <h5 class="mt-3 mb-4">${euroConverter(localStorage.getItem("totalAmountStored"))}</h5> est enregistrée sous la référence <h5 class="mt-3 mb-4">${localStorage.getItem("orderId")}.</h5></p>`;
 
     // Suppression des paires clés/valeurs relatives au parcours utilisateur durant sa commande
     localStorage.removeItem("orderId");
