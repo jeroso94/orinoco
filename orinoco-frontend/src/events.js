@@ -66,6 +66,7 @@ export function keepTeddy() {
             basketReserved.push(newProductLine);
             localStorage.setItem("basketStored", JSON.stringify(basketReserved));
         }
+        alert ("Votre peluche est dans le panier !")
     }
 }
 

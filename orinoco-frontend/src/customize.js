@@ -10,12 +10,17 @@ export default function showDetailsAndCustomize() {
     fetch(url)
     .then(response => response.json())
     .then(selectedProduct => {
-        let customizeResult = document.getElementById('customizeResult');
-        customizeResult.innerHTML += `<h2> Et voici... ${selectedProduct.name} </h2>           
-            <img src=${selectedProduct.imageUrl} alt='${selectedProduct._id}' width=25% />
-            <p>Référence: ${selectedProduct._id}</p>
-            <h3> Tu peux m'adopter pour ${euroConverter(selectedProduct.price)} !</h3>
-            <p> Voici mon histoire: ${selectedProduct.description} </p>`;
+        let teddyPicture = document.getElementById('teddyPicture');
+        teddyPicture.innerHTML += `<img class="img-fluid" src='${selectedProduct.imageUrl}' alt='${selectedProduct._id}' width='100%'>`;
+
+        let teddyTitle = document.getElementById('teddyTitle');
+        teddyTitle.innerText += `Et voici... ${selectedProduct.name}`;
+
+        let teddyStory = document.getElementById('teddyStory');
+        teddyStory.innerText += `Mon histoire : ${selectedProduct.description}`;
+
+        let teddyPrice = document.getElementById('teddyPrice');
+        teddyPrice.innerText += `Prix unitaire : ${euroConverter(selectedProduct.price)}`;
 
         // Gestion des produits - Coloris disponibles à la vente
         const selectTeddyColor = document.getElementById('teddyColor');
@@ -31,7 +36,7 @@ export default function showDetailsAndCustomize() {
         -- DEBUT -- */
         selectTeddyColor.addEventListener('change', (event) => {
             const logTeddyColor = document.getElementById('logTeddyColor');
-            logTeddyColor.textContent = `Coloris ${event.target.value} enregistré.`;
+            logTeddyColor.textContent = `Coloris ${event.target.value} retenu.`;
             localStorage.setItem ('selectedProductColor', `${event.target.value}`);
         });
         /* Gestion EVENEMENT - Liste déroulante CHOIX DU COLORIS PELUCHE
@@ -50,7 +55,7 @@ export default function showDetailsAndCustomize() {
         -- DEBUT -- */
         selectTeddyQty.addEventListener('change', (event) => {
             const logTeddyQty = document.getElementById('logTeddyQty');
-            logTeddyQty.textContent = `${event.target.value} exemplaire(s) enregistré(s).`;
+            logTeddyQty.textContent = `${event.target.value} exemplaire(s) retenu(s).`;
             localStorage.setItem ('selectedProductQty', `${event.target.value}`);
         });
         /* Gestion EVENEMENT - Liste déroulante CHOIX DE QUANTITE
