@@ -16,7 +16,7 @@ export default function showAllTeddies() {
 
             listResult.innerHTML += `<article class='col-md-6 col-lg-4 p-3'>
                 <img src='${listOfProducts[value].imageUrl}' alt='${listOfProducts[value]._id}' width=50% />
-                <h3><a id='${listOfProducts[value].name}' href='/views/customize.html'>${listOfProducts[value].name}</a></h3>
+                <h3><a id='${listOfProducts[value].name}' href='/views/customize.html?id=${listOfProducts[value]._id}'>${listOfProducts[value].name}</a></h3>
                 <h5>${euroConverter(listOfProducts[value].price)}</h5>
             </article>`;
 
@@ -30,7 +30,7 @@ export default function showAllTeddies() {
             document.getElementById(listOfProducts[value].name).onclick = () => {
                 localStorage.setItem ('selectedProductId', listOfProducts[value]._id);
                 //alert ("LocalStorage : " + localStorage.getItem ('selectedProductId'));
-                location.href = "/views/customize.html";  
+                location.href = `'/views/customize.html?id=${listOfProducts[value]._id}'`;  
             }
         } 
     })
