@@ -5,7 +5,10 @@ export default function showDetailsAndCustomize() {
 
     /* REQUETE API GET pour afficher le détail du produit sélectionné
     -- DEBUT -- */
-    const url = 'http://localhost:3000/api/teddies/' + localStorage.getItem('selectedProductId');
+    //const url = 'http://localhost:3000/api/teddies/' + localStorage.getItem('selectedProductId');
+    let params = (new URL(document.location)).searchParams;
+    let selectedProductId = params.get('id');
+    const url = 'http://localhost:3000/api/teddies/' + selectedProductId;
     //console.log(url);
     fetch(url)
     .then(response => response.json())
