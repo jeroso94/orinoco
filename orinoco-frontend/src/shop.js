@@ -5,7 +5,8 @@ export default function showAllTeddies() {
     /* REQUETE API GET pour afficher la liste des produits
     -- DEBUT -- */
 
-    fetch('http://localhost:3000/api/teddies')
+    //fetch('http://localhost:3000/api/teddies')
+    fetch('https://orinoco-be-e25hrjcoqq-ew.a.run.app/api/teddies/')
     .then(response => response.json())
     .then(listOfProducts => {
         let listResult = document.getElementById('result');
