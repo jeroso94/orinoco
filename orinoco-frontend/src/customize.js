@@ -8,7 +8,8 @@ export default function showDetailsAndCustomize() {
     //const url = 'http://localhost:3000/api/teddies/' + localStorage.getItem('selectedProductId');
     let params = (new URL(document.location)).searchParams;
     let selectedProductId = params.get('id');
-    const url = 'http://localhost:3000/api/teddies/' + selectedProductId;
+    //const url = 'http://localhost:3000/api/teddies/' + selectedProductId;
+    const url = 'https://orinoco-be-e25hrjcoqq-ew.a.run.app/api/teddies/' + selectedProductId;
     //console.log(url);
     fetch(url)
     .then(response => response.json())

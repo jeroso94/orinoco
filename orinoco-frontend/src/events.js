@@ -110,7 +110,8 @@ export function confirmOrder() {
         }
     
         // Envoi du bon de commande au serveur
-        fetch('http://localhost:3000/api/teddies/order', {
+        //fetch('http://localhost:3000/api/teddies/order', {
+        fetch('https://orinoco-be-e25hrjcoqq-ew.a.run.app/api/teddies/order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

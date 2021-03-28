@@ -11,8 +11,9 @@ export default function showTeddiesInBasket() {
 
         /* REQUETE API GET pour afficher le détail du produit sélectionné
         -- DEBUT -- */        
-       
-        const url = 'http://localhost:3000/api/teddies/' + item.productid;
+
+        //const url = 'http://localhost:3000/api/teddies/' + item.productid;
+        const url = 'https://orinoco-be-e25hrjcoqq-ew.a.run.app/api/teddies/' + item.productid;
         //console.log(url);
         fetch(url)
         .then(response => response.json())
